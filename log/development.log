@@ -64,3 +64,39 @@ Processing by SessionsController#show as */*
 Completed 401 Unauthorized in 11ms (Views: 8.0ms | Allocations: 3035)
 
 
+Started GET "/me" for 127.0.0.1 at 2023-05-25 12:19:52 -0400
+Processing by SessionsController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.03ms)
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | Allocations: 249)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-05-25 12:20:01 -0400
+Processing by SessionsController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Completed 401 Unauthorized in 1ms (Views: 0.4ms | Allocations: 249)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-05-25 12:20:26 -0400
+Processing by SessionsController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.03ms)
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | Allocations: 249)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-05-25 12:27:02 -0400
+Processing by SessionsController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Completed 401 Unauthorized in 1ms (Views: 0.8ms | Allocations: 247)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-05-25 12:27:58 -0400
+Processing by SessionsController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.03ms)
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | Allocations: 247)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-05-25 12:34:26 -0400
+Processing by SessionsController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.03ms)
+Completed 401 Unauthorized in 0ms (Views: 0.3ms | Allocations: 247)
+
+
