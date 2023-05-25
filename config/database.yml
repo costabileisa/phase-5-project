@@ -11,14 +11,14 @@ default: &default
 # 
 development:
   <<: *default
-  database: capstone_development
+  database: spotify_clone_db
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: capstone_test
+  database: spotify_clone_db
 
 production:
   <<: *default

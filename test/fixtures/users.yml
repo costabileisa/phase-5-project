@@ -4,12 +4,30 @@ one:
   email: MyString
   username: MyString
   password_digest: MyString
-  birthdate: MyText
+  birthdate: MyString
   region: MyString
+  avatar_url: MyString
+  spotify_token: MyString
+  spotify_refresh_token: MyString
+  spotify_display_name: MyString
+  spotify_email: MyString
+  spotify_id: MyString
+  spotify_img: MyString
+  spotify_token_lifetime: 1
+  spotify_region: MyString
 
 two:
   email: MyString
   username: MyString
   password_digest: MyString
-  birthdate: MyText
+  birthdate: MyString
   region: MyString
+  avatar_url: MyString
+  spotify_token: MyString
+  spotify_refresh_token: MyString
+  spotify_display_name: MyString
+  spotify_email: MyString
+  spotify_id: MyString
+  spotify_img: MyString
+  spotify_token_lifetime: 1
+  spotify_region: MyString
