@@ -44,14 +44,15 @@ function App() {
 
   if (!isAuthenticated)
     return (
-      <UserContext.Provider value={{ setIsAuthenticated, setLocalUser }}>
-        <Routes>
-          <Route index element={<Login />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-        </Routes>
-        <Footer />
-      </UserContext.Provider>
+      <>
+        <UserContext.Provider value={{ setIsAuthenticated, setLocalUser }}>
+          <Routes>
+            <Route index element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+          </Routes>
+        </UserContext.Provider>
+      </>
     );
 
   return (
@@ -81,8 +82,7 @@ function App() {
           <Grid item sx={{ flexGrow: 1 }}>
             <Header />
             <Routes>
-              <Route index element={<Home />} />
-              <Route path="/" element={<Home />} />
+              <Route index element={<Search />} />
               <Route path="/search" element={<Search />} />
               <Route path="/playlists/:id" element={<Playlist />} />
               <Route path="/profile" element={<Profile />} />

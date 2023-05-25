@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext, useState } from "react"
 import { UserContext } from "../context/UserContext"
 
 import { Grid } from "@mui/material";
@@ -13,9 +13,21 @@ import SkipNextIcon from "@mui/icons-material/SkipNext";
 import SkipPreviousIcon from "@mui/icons-material/SkipPrevious";
 
 function Footer() {
-  const { currentTrack, setCurrentTrack, currentQueue, playState, setPlayState } = useContext(UserContext);
+  const { currentTrack, setCurrentTrack, currentQueue } = useContext(UserContext);
   const [shuffle, setShuffle] = useState(false);
   const [repeat, setRepeat] = useState(false);
+
+  function prevSong() {
+    let currentSongIndex = currentQueue.findIndex((song) => song.id === currentTrack.id);
+    let prev = shuffle ? currentQueue[Math.floor(Math.random() * currentQueue.length)] : currentQueue.indexOf(currentTrack) === 0 ? currentQueue[currentQueue.length - 1] : currentQueue[currentSongIndex - 1]
+    setCurrentTrack(prev)
+  };
+
+  function nextSong() {
+    let currentSongIndex = currentQueue.findIndex((song) => song.id === currentTrack.id);
+    let next = shuffle ? currentQueue[Math.floor(Math.random() * currentQueue.length)] : currentQueue.indexOf(currentTrack) === currentQueue.length - 1 ? currentQueue[0] : currentQueue[currentSongIndex + 1]
+    setCurrentTrack(next)
+  };
 
   console.log("inside footer")
   return (
@@ -35,16 +47,16 @@ function Footer() {
       }
       <div className='footer__center'>
         {shuffle ?
-          <ShuffleOnIcon className='footer__green' onClick={() => handleShuffle()} />
+          <ShuffleOnIcon className='footer__green' onClick={() => setShuffle(!shuffle)} />
           :
-          <ShuffleIcon className='footer__green' onClick={() => handleShuffle()} />
+          <ShuffleIcon className='footer__green' onClick={() => setShuffle(!shuffle)} />
         }
         <SkipPreviousIcon className='footer__icon' onClick={prevSong} />
         <SkipNextIcon className='footer__icon' onClick={nextSong} />
         {repeat ?
-          <RepeatOnIcon className='footer__green' onClick={() => handleRepeat()} />
+          <RepeatOnIcon className='footer__green' onClick={() => setRepeat(!repeat)} />
           :
-          <RepeatIcon className='footer__green' onClick={() => handleRepeat()} />
+          <RepeatIcon className='footer__green' onClick={() => setRepeat(!repeat)} />
         }
       </div>
       <div className='footer__right'>

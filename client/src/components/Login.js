@@ -45,7 +45,6 @@ function Login() {
 
   return (
     <div className="Login">
-      <div className='login'>
         <form onSubmit={handleSubmit}>
           <h1>Log in to Spotify Clone.</h1>
           <input
@@ -76,7 +75,6 @@ function Login() {
             }) : null}
           </div>
         </form>
-      </div>
     </div>
   )
 }
