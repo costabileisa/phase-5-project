@@ -38,7 +38,7 @@ function Navbar() {
 
   function reload() {
     navigate("/")
-    window.location.reload();
+    window.location.reload()
   };
 
   return (
