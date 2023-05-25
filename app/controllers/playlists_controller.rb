@@ -1,27 +1,18 @@
 class PlaylistsController < ApplicationController
-  #rescues exceptions when data is not found or invalid
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
   rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
-  # wraps incoming parameters to let Rails see them
   wrap_parameters format: []
   
-  # before_action :set_playlist, only: %i[ show update destroy ]
-
-  # GET /playlists
   def index
     @playlists = Playlist.all
-
     render json: @playlists
   end
 
-  # GET /playlists/:id
   def show
-    # byebug
     playlist = Playlist.find(params[:id])
     render json: playlist, status: :ok
   end
 
-  # POST /playlists
   def create
     user = User.find(session[:user_id])
     new_playlist_name = user.playlists.length < 1 ? "My Playlist #1" : "My Playlist ##{user.playlists.last.id + 1}"
@@ -31,6 +22,7 @@ class PlaylistsController < ApplicationController
       description: 'My Playlist includes ...',
       spotify_id: '',
       type_of_playlist: 'regular ol\' playlist',
+      image: playlist_params[:params]
     )
     render json: playlist, status: :created
   end
