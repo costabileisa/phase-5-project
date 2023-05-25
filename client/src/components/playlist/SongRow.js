@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { SpotifyContext } from "../SpotifyContext"
+import { UserContext } from "../../context/UserContext"
 
 import AddIcon from '@mui/icons-material/Add'
 import Button from '@mui/material/Button'
@@ -7,7 +7,7 @@ import Grid from '@mui/material/Grid'
 import PlayCircleIcon from '@mui/icons-material/PlayCircle'
 
 function SongRow({ track, handleAddTrack, queue }) {
-  const { setCurrentTrack, setCurrentQueue } = useContext(SpotifyContext)
+  const { setCurrentTrack, setCurrentQueue } = useContext(UserContext)
 
     function handlePlayTrack(e) {
       setCurrentTrack(track)
