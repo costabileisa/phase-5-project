@@ -37,6 +37,7 @@ function SongResultPlayListForm({ track }) {
 
   function handleAddSongToPlaylist() {
     let songGenre = track.album.genres === null ? null : track.album.genres[0]
+    console.log(track.album)
     fetch(`/songs`, {
       method: "POST",
       headers: {

@@ -93,9 +93,6 @@ function Search() {
             <Typography variant="body2" color="text.secondary">
               {`Album: ${track.album.name}`}
             </Typography>
-            <CardActions>
-              <Button size="small" onClick={(e) => sendToPlayer(e, track)}>Play</Button>
-            </CardActions>
             <SongResultPlayListForm track={track} />
           </CardContent>
         </div>

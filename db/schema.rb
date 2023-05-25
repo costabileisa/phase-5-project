@@ -19,7 +19,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_25_182825) do
     t.string "release_date"
     t.integer "total_tracks"
     t.string "image_url"
-    t.integer "spotify_id"
+    t.string "spotify_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -36,14 +36,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_25_182825) do
   end
 
   create_table "songs", force: :cascade do |t|
-    t.string "featured_artist"
     t.string "release_date"
     t.string "name"
     t.string "genre"
     t.integer "playlist_id"
     t.integer "album_id"
-    t.integer "spotify_playlist_id"
-    t.integer "spotify_album_id"
+    t.string "spotify_playlist_id"
+    t.string "spotify_album_id"
     t.string "preview_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -62,7 +61,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_25_182825) do
     t.string "spotify_email"
     t.string "spotify_id"
     t.string "spotify_img"
-    t.integer "spotify_token_lifetime"
+    t.string "spotify_token_lifetime"
     t.string "spotify_region"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

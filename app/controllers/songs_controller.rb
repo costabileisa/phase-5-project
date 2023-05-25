@@ -38,6 +38,6 @@ end
 private
 
   def song_params
-    params.permit(:cover_art, :preview_url, :playlist_id, :name, :preview_url, :spotify_album_id, :spotify_playlist_id, :release_date, :genre, :spotify_id)
+    params.permit(:preview_url, :playlist_id, :name, :preview_url, :spotify_album_id, :spotify_playlist_id, :release_date, :genre, :spotify_id)
   end
 end

@@ -13,20 +13,20 @@
   padding: 10px;
 }
 
-/* 
+
 .image_class {
   height: 175px;
   width: 300px;
   margin-right: 5em;
   box-shadow: 10px 10px rgb(12, 11, 11);
-} */
+}
 
-/* .profile_image_class {
+.profile_image_class {
   height: 85px;
   width: 140px;
   margin-right: 5em;
   box-shadow: 10px 10px rgb(12, 11, 11);
-} */
+}
 
 .body__infoText {
   flex: 1;

@@ -47,8 +47,6 @@ function Playlist() {
         spotify_id: track.id,
         spotify_album_id: track.album.id,
         playlist_id: currentPlaylist.id,
-        spotify_artist_id: track.artists[0].id,
-        featured_artist: track.artists[0].name,
         release_date: track.album.release_date,
         name: track.name,
         genre: songGenre,

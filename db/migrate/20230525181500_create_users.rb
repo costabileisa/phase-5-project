@@ -13,7 +13,7 @@ class CreateUsers < ActiveRecord::Migration[7.0]
       t.string :spotify_email
       t.string :spotify_id
       t.string :spotify_img
-      t.integer :spotify_token_lifetime
+      t.string :spotify_token_lifetime
       t.string :spotify_region
 
       t.timestamps
