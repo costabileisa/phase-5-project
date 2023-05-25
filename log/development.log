@@ -3968,3 +3968,37 @@ Processing by SpotifyApiController#browse as */*
 Completed 200 OK in 1945ms (Views: 20.9ms | ActiveRecord: 0.0ms | Allocations: 52578)
 
 
+Started GET "/me" for 127.0.0.1 at 2023-05-25 19:05:50 -0400
+Processing by SessionsController#show as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mPlaylist Load (0.1ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists" WHERE "playlists"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   [1m[36mSong Load (0.1ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."playlist_id" = $1[0m  [["playlist_id", 1]]
+[active_model_serializers]   [1m[36mSong Load (0.1ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."playlist_id" = $1[0m  [["playlist_id", 2]]
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (2.37ms)
+Completed 200 OK in 4ms (Views: 2.2ms | ActiveRecord: 0.7ms | Allocations: 1982)
+
+
+Started GET "/spotify_api/browse?term=dog" for 127.0.0.1 at 2023-05-25 19:06:53 -0400
+Processing by SpotifyApiController#browse as */*
+  Parameters: {"term"=>"dog"}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (20.91ms)
+Completed 200 OK in 1775ms (Views: 22.1ms | Allocations: 56120)
+
+
+Started POST "/songs" for 127.0.0.1 at 2023-05-25 19:06:59 -0400
+Processing by SongsController#create as */*
+  Parameters: {"spotify_id"=>"4YLXjoYmRGIXstTLtloHf2", "spotify_album_id"=>"3Gt7rOjcZQoHCfnKl5AkK7", "playlist_id"=>1, "spotify_artist_id"=>"4uFZsG1vXrPcvnZ4iSQyrx", "featured_artist"=>"C418", "release_date"=>"2011-03-04", "name"=>"Dog", "genre"=>nil, "preview_url"=>"https://p.scdn.co/mp3-preview/67a45b80b8d4c144651fe7dc86d3e64242ca2b70?cid=3dd1080bf6e04717adeaa580b9a41a6a", "cover_art"=>"https://i.scdn.co/image/ab67616d0000b273aaeb5c9fb6131977995b7f0e"}
+[31mUnpermitted parameters: :spotify_artist_id, :featured_artist. Context: { controller: SongsController, action: create, request: #<ActionDispatch::Request:0x000000011623a7f0>, params: {"spotify_id"=>"4YLXjoYmRGIXstTLtloHf2", "spotify_album_id"=>"3Gt7rOjcZQoHCfnKl5AkK7", "playlist_id"=>1, "spotify_artist_id"=>"4uFZsG1vXrPcvnZ4iSQyrx", "featured_artist"=>"C418", "release_date"=>"2011-03-04", "name"=>"Dog", "genre"=>nil, "preview_url"=>"https://p.scdn.co/mp3-preview/67a45b80b8d4c144651fe7dc86d3e64242ca2b70?cid=3dd1080bf6e04717adeaa580b9a41a6a", "cover_art"=>"https://i.scdn.co/image/ab67616d0000b273aaeb5c9fb6131977995b7f0e", "controller"=>"songs", "action"=>"create"} }[0m
+  [1m[36mPlaylist Load (0.3ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists" WHERE "playlists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[31mUnpermitted parameters: :spotify_artist_id, :featured_artist. Context: { controller: SongsController, action: create, request: #<ActionDispatch::Request:0x000000011623a7f0>, params: {"spotify_id"=>"4YLXjoYmRGIXstTLtloHf2", "spotify_album_id"=>"3Gt7rOjcZQoHCfnKl5AkK7", "playlist_id"=>1, "spotify_artist_id"=>"4uFZsG1vXrPcvnZ4iSQyrx", "featured_artist"=>"C418", "release_date"=>"2011-03-04", "name"=>"Dog", "genre"=>nil, "preview_url"=>"https://p.scdn.co/mp3-preview/67a45b80b8d4c144651fe7dc86d3e64242ca2b70?cid=3dd1080bf6e04717adeaa580b9a41a6a", "cover_art"=>"https://i.scdn.co/image/ab67616d0000b273aaeb5c9fb6131977995b7f0e", "controller"=>"songs", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAlbum Create (0.5ms)[0m  [1m[32mINSERT INTO "albums" ("name", "release_date", "total_tracks", "image_url", "spotify_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", nil], ["release_date", nil], ["total_tracks", nil], ["image_url", nil], ["spotify_id", 3], ["created_at", "2023-05-25 23:06:59.287326"], ["updated_at", "2023-05-25 23:06:59.287326"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 12.7ms | Allocations: 21512)
+
+
+  
+NoMethodError (undefined method `name' for nil:NilClass):
+  
+app/models/album.rb:8:in `update_album'
+app/controllers/songs_controller.rb:18:in `create'

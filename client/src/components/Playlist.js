@@ -2,6 +2,8 @@ import React, { useState, useContext, useEffect, useRef } from "react"
 import { useParams } from 'react-router-dom'
 import { UserContext } from "../context/UserContext"
 
+import "../css/body.css"
+
 import PlaylistInfo from "./playlist/PlaylistInfo"
 import PlaylistSongRow from "./playlist/PlaylistSongRow"
 import SongRow from "./playlist/SongRow"
