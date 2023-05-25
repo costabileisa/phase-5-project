@@ -2,8 +2,6 @@ Rails.application.routes.draw do
   resources :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  root "fallback#index"
   resources :artists, only: [:index, :show, :create, :update, :destroy]
   resources :albums, only: [:index, :show, :create, :update, :destroy]
   resources :songs, only: [:index, :show, :create, :update, :destroy]
@@ -22,6 +20,7 @@ Rails.application.routes.draw do
   post "spotify_api/save_playlist", to: "spotify_api#new_playlist"
   get "spotify_api/update_token", to: "spotify_api#update_token"
 
-  get '*path', to: 'fallback#index', constraints: lambda { |req| req.path.exclude? 'rails/active_storage' }
-  
+  get '*path',
+  to: 'fallback#index',
+  constraints: ->(req) { !req.xhr? && req.format.html? }  
 end
