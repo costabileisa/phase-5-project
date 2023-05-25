@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react"
 import { useParams } from 'react-router-dom'
-import { UserContext } from "../context/UserContext"
+import { UserContext } from "../../context/UserContext.js"
 
 import Button from '@mui/material/Button'
 import ClearIcon from '@mui/icons-material/Clear'
@@ -20,35 +20,35 @@ function PlaylistEdit({ open, setOpen, handleClose, form, setForm, setErrors }) 
 
   const [playlistCover, setPlaylistCover] = useState(null)
 
-  function handleSave(e) {
-    e.preventDefault()
-    fetch(`/playlists/${currentPlaylist.id}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(uploadForm)
-    }).then(res => {
-      if (res.ok) {
-        res.json().then(updatedPlaylist => {
-          setCurrentPlaylist(updatedPlaylist)
-          let updatedPlaylists = localUser.playlists.map(p => {
-            if (params.id === p.id.toString()) {
-              return updatedPlaylist
-            } else {
-              return p
-            }
-          })
-          setLocalUser({ ...localUser, playlists: updatedPlaylists })
-        });
-      } else {
-        res.json().then(err => {
-          setErrors(err.error)
-        })
-      }
-    })
-    setOpen(false)
-  };
+  // function handleSave(e) {
+  //   e.preventDefault()
+  //   fetch(`/playlists/${currentPlaylist.id}`, {
+  //     method: "PATCH",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(uploadForm)
+  //   }).then(res => {
+  //     if (res.ok) {
+  //       res.json().then(updatedPlaylist => {
+  //         setCurrentPlaylist(updatedPlaylist)
+  //         let updatedPlaylists = localUser.playlists.map(p => {
+  //           if (params.id === p.id.toString()) {
+  //             return updatedPlaylist
+  //           } else {
+  //             return p
+  //           }
+  //         })
+  //         setLocalUser({ ...localUser, playlists: updatedPlaylists })
+  //       });
+  //     } else {
+  //       res.json().then(err => {
+  //         setErrors(err.error)
+  //       })
+  //     }
+  //   })
+  //   setOpen(false)
+  // }
 
   function handleUpdate(e) {
     setForm({ ...form, [e.target.name]: e.target.value })
@@ -149,9 +149,9 @@ function PlaylistEdit({ open, setOpen, handleClose, form, setForm, setErrors }) 
         <Button onClick={handleClose}
           sx={{ color: 'white' }}
         >Cancel</Button>
-        <Button onClick={handleSave}
+        {/* <Button onClick={handleSave}
           sx={{ color: 'white' }}
-        >Save</Button>
+        >Save</Button> */}
       </DialogActions>
     </Dialog>
   );

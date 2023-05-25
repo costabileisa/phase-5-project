@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect, useRef } from "react";
 import { useParams, useNavigate } from 'react-router-dom';
-import { UserContext } from "../context/UserContext";
+import { UserContext } from "../../context/UserContext";
 
 import PlaylistEdit from './PlaylistEdit';
 
@@ -15,7 +15,7 @@ import Snackbar from '@mui/material/Snackbar';
 
 function PlaylistInfo() {
   // sets state, params, navigate and context
-  const { currentPlaylist, setCurrentPlaylist, localUser, setLocalUser } = useContext(SpotifyContext);
+  const { currentPlaylist, setCurrentPlaylist, localUser, setLocalUser } = useContext(UserContext);
   const navigate = useNavigate();
   const params = useParams();
   const addPlaylistMessage = useRef('');
@@ -219,7 +219,7 @@ function PlaylistInfo() {
 
           {/* dialog for update menu */}
           <div>
-            <PlaylistInfoDialog 
+            <PlaylistEdit 
               open={open} 
               setOpen={setOpen}
               handleClose={handleClose}

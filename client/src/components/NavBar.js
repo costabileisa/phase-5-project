@@ -1,19 +1,19 @@
-import React, { useContext } from "react";
-import { UserContext } from "../context/UserContext";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useContext } from "react"
+import { UserContext } from "../context/UserContext"
+import { Link, useNavigate } from "react-router-dom"
 
 // import PlaylistCreate from "../Pages/PlaylistCreate";
 
 import { Avatar } from "@mui/material";
-import { Typography } from "@mui/material";
-import HomeIcon from "@mui/icons-material/Home";
-import LibraryMusicIcon from "@mui/icons-material/LibraryMusic";
-import LoginIcon from "@mui/icons-material/Login";
-import SearchIcon from "@mui/icons-material/Search";
+import { Typography } from "@mui/material"
+import HomeIcon from "@mui/icons-material/Home"
+import LibraryMusicIcon from "@mui/icons-material/LibraryMusic"
+import LoginIcon from "@mui/icons-material/Login"
+import SearchIcon from "@mui/icons-material/Search"
 
 function Navbar() {
-  const { localUser } = useContext(UserContext);
-  const navigate = useNavigate();
+  const { localUser } = useContext(UserContext)
+  const navigate = useNavigate()
 
   // const ListUserPlaylists = () => {
   //   let updatedPlaylistLinks = localUser.playlists
