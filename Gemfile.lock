@@ -286,7 +286,7 @@ DEPENDENCIES
   byebug
   debug
   net-http
-  pg (~> 1.1)
+  pg (>= 1.2.3)
   pry
   puma (~> 5.0)
   rails (~> 7.0.4)
