@@ -15,26 +15,26 @@ function Navbar() {
   const { localUser } = useContext(UserContext)
   const navigate = useNavigate()
 
-  // const ListUserPlaylists = () => {
-  //   let updatedPlaylistLinks = localUser.playlists
-  //     .sort((a, b) => a.id - b.id)
-  //     .map((playlist) => {
-  //       return (
-  //         <Link
-  //           to={`playlists/${playlist.id}`}
-  //           className='sidebarPlaylists'
-  //           key={playlist.name}
-  //         >
-  //           <Avatar
-  //             src={playlist.image}
-  //             className="sidebarOption_icon"
-  //           />
-  //           <h4>{playlist.name}</h4>
-  //         </Link>
-  //       )
-  //     })
-  //   return updatedPlaylistLinks
-  // };
+  const ListUserPlaylists = () => {
+    let updatedPlaylistLinks = localUser.playlists
+      .sort((a, b) => a.id - b.id)
+      .map((playlist) => {
+        return (
+          <Link
+            to={`playlists/${playlist.id}`}
+            className='sidebarPlaylists'
+            key={playlist.name}
+          >
+            <Avatar
+              src={playlist.image}
+              className="sidebarOption_icon"
+            />
+            <h4>{playlist.name}</h4>
+          </Link>
+        )
+      })
+    return updatedPlaylistLinks
+  };
 
   function reload() {
     navigate("/")
@@ -62,12 +62,12 @@ function Navbar() {
         <LoginIcon className="sidebarOption_icon" />
         <h4>Sign in with Spotify</h4>
       </a>
-      {/* <PlaylistCreate /> */}
+      <PlaylistCreate />
       <Typography variant="h6" className='sidebar_title' sx={{ marginTop: '2em', color: 'grey' }}>
         My Playlists
       </Typography>
       <hr />
-      {/* <ListUserPlaylists /> */}
+      <ListUserPlaylists />
     </div>
   );
 };
