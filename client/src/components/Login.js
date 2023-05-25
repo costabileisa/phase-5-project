@@ -31,6 +31,7 @@ function Login() {
         .then(user => {
           setIsAuthenticated(true)
           setLocalUser(user)
+          navigate("/search")
         })
       } else {
         res.json()

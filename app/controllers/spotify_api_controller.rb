@@ -11,7 +11,6 @@ class SpotifyApiController < ApplicationController
 
   def browse
     results = {}
-    results[:artists] = RSpotify::Artist.search("#{params[:term]}", limit: 10)
     results[:tracks] = RSpotify::Track.search("#{params[:term]}", limit: 10)
     results[:albums] = RSpotify::Album.search("#{params[:term]}", limit: 10)
     results[:playlists] = RSpotify::Playlist.search("#{params[:term]}", limit: 10)

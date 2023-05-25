@@ -3378,3 +3378,224 @@ Started GET "/spotify_api/browse?term=dog" for 127.0.0.1 at 2023-05-25 18:08:51 
   
 ActionController::RoutingError (uninitialized constant SpotifyApiController):
   
+Started GET "/me" for 127.0.0.1 at 2023-05-25 18:15:29 -0400
+Processing by SessionsController#show as */*
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mPlaylist Load (0.4ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists" WHERE "playlists"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."playlist_id" = $1[0m  [["playlist_id", 1]]
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (20.95ms)
+Completed 200 OK in 89ms (Views: 19.7ms | ActiveRecord: 28.6ms | Allocations: 96735)
+
+
+Started POST "/playlists" for 127.0.0.1 at 2023-05-25 18:15:34 -0400
+Processing by PlaylistsController#create as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPlaylist Load (0.3ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists" WHERE "playlists"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlaylist Create (0.4ms)[0m  [1m[32mINSERT INTO "playlists" ("name", "user_id", "image_url", "description", "spotify_id", "type_of_playlist", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "My Playlist #2"], ["user_id", 1], ["image_url", "https://cdn.pixabay.com/photo/2017/09/25/13/12/puppy-2785074_1280.jpg"], ["description", "My Playlist includes ..."], ["spotify_id", ""], ["type_of_playlist", "basic playlist"], ["created_at", "2023-05-25 22:15:34.706003"], ["updated_at", "2023-05-25 22:15:34.706003"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers]   [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."playlist_id" = $1[0m  [["playlist_id", 2]]
+[active_model_serializers] Rendered PlaylistSerializer with ActiveModelSerializers::Adapter::Attributes (5.47ms)
+Completed 201 Created in 73ms (Views: 6.7ms | ActiveRecord: 17.5ms | Allocations: 97540)
+
+
+Started GET "/spotify_api/browse?term=dog" for 127.0.0.1 at 2023-05-25 18:15:44 -0400
+Processing by SpotifyApiController#browse as */*
+  Parameters: {"term"=>"dog"}
+Completed 500 Internal Server Error in 302ms (ActiveRecord: 0.0ms | Allocations: 7118)
+
+
+  
+RSpotify::MissingAuthentication (RSpotify::MissingAuthentication):
+  
+app/controllers/spotify_api_controller.rb:14:in `browse'
+Started GET "/me" for 127.0.0.1 at 2023-05-25 18:16:45 -0400
+Processing by SessionsController#show as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mPlaylist Load (0.1ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists" WHERE "playlists"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   [1m[36mSong Load (0.1ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."playlist_id" = $1[0m  [["playlist_id", 1]]
+[active_model_serializers]   [1m[36mSong Load (0.1ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."playlist_id" = $1[0m  [["playlist_id", 2]]
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (15.88ms)
+Completed 200 OK in 27ms (Views: 12.5ms | ActiveRecord: 9.4ms | Allocations: 22908)
+
+
+Started GET "/spotify_api/browse?term=dog" for 127.0.0.1 at 2023-05-25 18:16:50 -0400
+Processing by SpotifyApiController#browse as */*
+  Parameters: {"term"=>"dog"}
+Completed 500 Internal Server Error in 353ms (ActiveRecord: 0.0ms | Allocations: 1721)
+
+
+  
+RSpotify::MissingAuthentication (RSpotify::MissingAuthentication):
+  
+app/controllers/spotify_api_controller.rb:14:in `browse'
+Started GET "/me" for 127.0.0.1 at 2023-05-25 18:17:21 -0400
+Processing by SessionsController#show as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mPlaylist Load (0.3ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists" WHERE "playlists"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."playlist_id" = $1[0m  [["playlist_id", 1]]
+[active_model_serializers]   [1m[36mSong Load (0.1ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."playlist_id" = $1[0m  [["playlist_id", 2]]
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (23.78ms)
+Completed 200 OK in 83ms (Views: 24.4ms | ActiveRecord: 13.8ms | Allocations: 97177)
+
+
+Started GET "/spotify_api/browse?term=dog" for 127.0.0.1 at 2023-05-25 18:17:23 -0400
+Processing by SpotifyApiController#browse as */*
+  Parameters: {"term"=>"dog"}
+Completed 500 Internal Server Error in 337ms (ActiveRecord: 0.0ms | Allocations: 1287)
+
+
+  
+RSpotify::MissingAuthentication (RSpotify::MissingAuthentication):
+  
+app/controllers/spotify_api_controller.rb:14:in `browse'
+Started GET "/me" for 127.0.0.1 at 2023-05-25 18:19:13 -0400
+Processing by SessionsController#show as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mPlaylist Load (0.4ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists" WHERE "playlists"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."playlist_id" = $1[0m  [["playlist_id", 1]]
+[active_model_serializers]   [1m[36mSong Load (0.1ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."playlist_id" = $1[0m  [["playlist_id", 2]]
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (24.42ms)
+Completed 200 OK in 78ms (Views: 23.6ms | ActiveRecord: 14.5ms | Allocations: 97151)
+
+
+Started GET "/spotify_api/browse?term=dog" for 127.0.0.1 at 2023-05-25 18:19:15 -0400
+Processing by SpotifyApiController#browse as */*
+  Parameters: {"term"=>"dog"}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (20.93ms)
+Completed 200 OK in 1255ms (Views: 22.3ms | Allocations: 59600)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-05-25 18:21:49 -0400
+Processing by SessionsController#show as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mPlaylist Load (0.4ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists" WHERE "playlists"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."playlist_id" = $1[0m  [["playlist_id", 1]]
+[active_model_serializers]   [1m[36mSong Load (0.1ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."playlist_id" = $1[0m  [["playlist_id", 2]]
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (20.87ms)
+Completed 200 OK in 70ms (Views: 19.5ms | ActiveRecord: 15.2ms | Allocations: 97147)
+
+
+Started GET "/spotify" for ::1 at 2023-05-25 18:21:51 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/spotify"):
+  
+Started GET "/auth/spotify" for ::1 at 2023-05-25 18:24:40 -0400
+Started GET "/auth/spotify" for ::1 at 2023-05-25 18:27:03 -0400
+Started POST "/login" for 127.0.0.1 at 2023-05-25 18:27:33 -0400
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"apple", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "apple"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 422 Unprocessable Entity in 302ms (Views: 0.9ms | ActiveRecord: 13.3ms | Allocations: 60064)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-05-25 18:27:40 -0400
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"apple", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "apple"], ["LIMIT", 1]]
+  [1m[36mUser Update (1.1ms)[0m  [1m[33mUPDATE "users" SET "spotify_token" = $1, "spotify_refresh_token" = $2, "spotify_token_lifetime" = $3, "spotify_display_name" = $4, "spotify_email" = $5, "spotify_id" = $6, "spotify_img" = $7, "spotify_region" = $8 WHERE "users"."id" = $9[0m  [["spotify_token", "[FILTERED]"], ["spotify_refresh_token", "[FILTERED]"], ["spotify_token_lifetime", "[FILTERED]"], ["spotify_display_name", ""], ["spotify_email", ""], ["spotify_id", ""], ["spotify_img", ""], ["spotify_region", ""], ["id", 1]]
+[active_model_serializers]   [1m[36mPlaylist Load (0.3ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists" WHERE "playlists"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."playlist_id" = $1[0m  [["playlist_id", 1]]
+[active_model_serializers]   [1m[36mSong Load (0.1ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."playlist_id" = $1[0m  [["playlist_id", 2]]
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (21.29ms)
+Completed 201 Created in 331ms (Views: 20.8ms | ActiveRecord: 5.9ms | Allocations: 38253)
+
+
+Started GET "/auth/spotify" for ::1 at 2023-05-25 18:27:44 -0400
+Started GET "/me" for 127.0.0.1 at 2023-05-25 18:27:54 -0400
+Processing by SessionsController#show as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mPlaylist Load (0.3ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists" WHERE "playlists"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."playlist_id" = $1[0m  [["playlist_id", 1]]
+[active_model_serializers]   [1m[36mSong Load (0.1ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."playlist_id" = $1[0m  [["playlist_id", 2]]
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (18.96ms)
+Completed 200 OK in 61ms (Views: 17.8ms | ActiveRecord: 14.1ms | Allocations: 97143)
+
+
+Started GET "/auth/spotify" for ::1 at 2023-05-25 18:29:56 -0400
+Started GET "/me" for 127.0.0.1 at 2023-05-25 18:30:40 -0400
+Processing by SessionsController#show as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mPlaylist Load (0.4ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists" WHERE "playlists"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."playlist_id" = $1[0m  [["playlist_id", 1]]
+[active_model_serializers]   [1m[36mSong Load (0.1ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."playlist_id" = $1[0m  [["playlist_id", 2]]
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (42.77ms)
+Completed 200 OK in 98ms (Views: 40.8ms | ActiveRecord: 19.3ms | Allocations: 97196)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2023-05-25 18:30:44 -0400
+Processing by SessionsController#destroy as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Update (1.3ms)[0m  [1m[33mUPDATE "users" SET "spotify_token" = $1, "spotify_refresh_token" = $2, "spotify_token_lifetime" = $3, "spotify_display_name" = $4, "spotify_email" = $5, "spotify_id" = $6, "spotify_img" = $7, "spotify_region" = $8 WHERE "users"."id" = $9[0m  [["spotify_token", "[FILTERED]"], ["spotify_refresh_token", "[FILTERED]"], ["spotify_token_lifetime", "[FILTERED]"], ["spotify_display_name", ""], ["spotify_email", ""], ["spotify_id", ""], ["spotify_img", ""], ["spotify_region", ""], ["id", 1]]
+Completed 204 No Content in 42ms (ActiveRecord: 11.5ms | Allocations: 59907)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-05-25 18:30:48 -0400
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"apple", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "apple"], ["LIMIT", 1]]
+  [1m[36mUser Update (0.7ms)[0m  [1m[33mUPDATE "users" SET "spotify_token" = $1, "spotify_refresh_token" = $2, "spotify_token_lifetime" = $3, "spotify_display_name" = $4, "spotify_email" = $5, "spotify_id" = $6, "spotify_img" = $7, "spotify_region" = $8 WHERE "users"."id" = $9[0m  [["spotify_token", "[FILTERED]"], ["spotify_refresh_token", "[FILTERED]"], ["spotify_token_lifetime", "[FILTERED]"], ["spotify_display_name", ""], ["spotify_email", ""], ["spotify_id", ""], ["spotify_img", ""], ["spotify_region", ""], ["id", 1]]
+[active_model_serializers]   [1m[36mPlaylist Load (0.1ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists" WHERE "playlists"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   [1m[36mSong Load (0.1ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."playlist_id" = $1[0m  [["playlist_id", 1]]
+[active_model_serializers]   [1m[36mSong Load (0.1ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."playlist_id" = $1[0m  [["playlist_id", 2]]
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (2.14ms)
+Completed 201 Created in 333ms (Views: 2.2ms | ActiveRecord: 1.6ms | Allocations: 2365)
+
+
+Started GET "/spotify_api/browse?term=dog" for 127.0.0.1 at 2023-05-25 18:30:59 -0400
+Processing by SpotifyApiController#browse as */*
+  Parameters: {"term"=>"dog"}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (20.51ms)
+Completed 200 OK in 1542ms (Views: 21.6ms | ActiveRecord: 0.0ms | Allocations: 55991)
+
+
+Started POST "/songs" for 127.0.0.1 at 2023-05-25 18:31:19 -0400
+Processing by SongsController#create as */*
+  Parameters: {"spotify_id"=>"0judK8TqYfvwUohBngUxrE", "spotify_album_id"=>"1pdqT6DBwIA0WElEspOA0v", "playlist_id"=>1, "spotify_artist_id"=>"4V8LLVI7PbaPR0K2TGSxFF", "featured_artist"=>"Tyler, The Creator", "release_date"=>"2023-03-27", "name"=>"DOGTOOTH", "genre"=>nil, "preview_url"=>"https://p.scdn.co/mp3-preview/5de4c8c30108bc114f9f38a28ac0832936a852bf?cid=3dd1080bf6e04717adeaa580b9a41a6a", "cover_art"=>"https://i.scdn.co/image/ab67616d0000b2732ee031f2335d35b2e6c7bc40"}
+  [1m[36mPlaylist Load (0.2ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists" WHERE "playlists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.2ms | Allocations: 2379)
+
+
+  
+NameError (uninitialized constant SongsController::Artist):
+  
+app/controllers/songs_controller.rb:15:in `create'
+Started GET "/me" for 127.0.0.1 at 2023-05-25 18:31:52 -0400
+Processing by SessionsController#show as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mPlaylist Load (0.3ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists" WHERE "playlists"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."playlist_id" = $1[0m  [["playlist_id", 1]]
+[active_model_serializers]   [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."playlist_id" = $1[0m  [["playlist_id", 2]]
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (3.3ms)
+Completed 200 OK in 5ms (Views: 3.2ms | ActiveRecord: 1.2ms | Allocations: 2025)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-05-25 18:31:53 -0400
+Processing by SessionsController#show as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mPlaylist Load (0.2ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists" WHERE "playlists"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   [1m[36mSong Load (0.1ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."playlist_id" = $1[0m  [["playlist_id", 1]]
+[active_model_serializers]   [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."playlist_id" = $1[0m  [["playlist_id", 2]]
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (2.71ms)
+Completed 200 OK in 5ms (Views: 2.5ms | ActiveRecord: 0.7ms | Allocations: 2112)
+
+
+Started GET "/spotify_api/browse?term=dog" for 127.0.0.1 at 2023-05-25 18:31:55 -0400
+Processing by SpotifyApiController#browse as */*
+  Parameters: {"term"=>"dog"}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (20.58ms)
+Completed 200 OK in 1560ms (Views: 21.2ms | ActiveRecord: 0.0ms | Allocations: 52600)
+
+
+Started POST "/songs" for 127.0.0.1 at 2023-05-25 18:32:04 -0400
+Processing by SongsController#create as */*
+  Parameters: {"spotify_id"=>"4YLXjoYmRGIXstTLtloHf2", "spotify_album_id"=>"3Gt7rOjcZQoHCfnKl5AkK7", "playlist_id"=>1, "spotify_artist_id"=>"4uFZsG1vXrPcvnZ4iSQyrx", "featured_artist"=>"C418", "release_date"=>"2011-03-04", "name"=>"Dog", "genre"=>nil, "preview_url"=>"https://p.scdn.co/mp3-preview/67a45b80b8d4c144651fe7dc86d3e64242ca2b70?cid=3dd1080bf6e04717adeaa580b9a41a6a", "cover_art"=>"https://i.scdn.co/image/ab67616d0000b273aaeb5c9fb6131977995b7f0e"}
+  [1m[36mPlaylist Load (0.3ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists" WHERE "playlists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.3ms | Allocations: 2361)
+
+
+  
+NameError (uninitialized constant SongsController::Artist):
+  
+app/controllers/songs_controller.rb:15:in `create'

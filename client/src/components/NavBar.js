@@ -58,7 +58,7 @@ function Navbar() {
         <SearchIcon className="sidebarOption_icon" />
         <h4>Search</h4>
       </Link>
-      <a component='a' href="https://spotify-app-8rdu.onrender.com/auth/spotify" className='sidebarOption' onClick={() => { }}>
+      <a component='a' href="http://localhost:3000/auth/spotify" className='sidebarOption' onClick={() => { }}>
         <LoginIcon className="sidebarOption_icon" />
         <h4>Sign in with Spotify</h4>
       </a>

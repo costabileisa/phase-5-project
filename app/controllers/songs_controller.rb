@@ -12,15 +12,12 @@ end
 
 def create
   playlist = Playlist.find(song_params[:playlist_id])
-  artist = Artist.create!(spotify_id: song_params[:spotify_artist_id])
-  artist.update_artist
   album = Album.create!(
     spotify_id: song_params[:spotify_album_id],
     artist_id: artist.id
   )
   album.update_album
   updated_song_params = song_params.clone
-  updated_song_params["artist_id"] = artist.id
   updated_song_params["album_id"] = album.id
   song = playlist.songs.create!(updated_song_params)
   render json: song, status: :created
