@@ -20,7 +20,6 @@ Rails.application.routes.draw do
   post "spotify_api/save_playlist", to: "spotify_api#new_playlist"
   get "spotify_api/update_token", to: "spotify_api#update_token"
 
-  get '*path',
-  to: 'fallback#index',
-  constraints: ->(req) { !req.xhr? && req.format.html? }  
+  get '*path', to: 'fallback#index', constraints: ->(req) { !req.xhr? && req.format.html? }
+  
 end
