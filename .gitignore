@@ -1,0 +1,19 @@
+# Ignore Gemfile.lock, as it should not be committed to version control.
+# Gemfile.lock
+
+# Ignore database configuration file.
+# config/database.yml/
+
+# Ignore credentials file.
+config/master.key
+
+# Ignore uploaded files directory.
+storage/*
+
+# Ignore IDE and editor-specific files.
+.vscode/
+.idea/
+*.swp
+
+# Ignore log files.
+log/*.log
