@@ -1,24 +1,23 @@
-import React, { useState, useContext, useEffect, useRef } from "react";
-import { useNavigate } from 'react-router-dom';
-import { UserContext } from "../../context/UserContext";
+import React, { useState, useContext, useEffect, useRef } from "react"
+import { useNavigate } from 'react-router-dom'
+import { UserContext } from "../../context/UserContext"
 
-import PlaylistEdit from './PlaylistEdit';
+import PlaylistEdit from './PlaylistEdit'
 
-import AddBoxIcon from '@mui/icons-material/AddBox';
-import Grid from '@mui/material/Grid';
-import IconButton from '@mui/material/IconButton';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+import AddBoxIcon from '@mui/icons-material/AddBox'
+import Grid from '@mui/material/Grid'
+import IconButton from '@mui/material/IconButton'
+import Menu from '@mui/material/Menu'
+import MenuItem from '@mui/material/MenuItem'
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz'
 
 function PlaylistInfo() {
-  // sets state, params, navigate and context
-  const { currentPlaylist, setCurrentPlaylist, localUser, setLocalUser } = useContext(UserContext);
-  const navigate = useNavigate();
-  const addPlaylistMessage = useRef('');
-  const [errors, setErrors] = useState([]);
-  const [form, setForm] = useState(currentPlaylist);
-  const [open, setOpen] = useState(false);
+  const { currentPlaylist, setCurrentPlaylist, localUser, setLocalUser } = useContext(UserContext)
+  const navigate = useNavigate()
+  const addPlaylistMessage = useRef('')
+  const [errors, setErrors] = useState([])
+  const [form, setForm] = useState(currentPlaylist)
+  const [open, setOpen] = useState(false)
 
   useEffect(() => {
     setForm(currentPlaylist)
@@ -85,14 +84,14 @@ function PlaylistInfo() {
     setAddPlaylistAnchorEl(event.currentTarget)
   }
   const handleCloseAddToPlaylistMenu = () => {
-    setAddPlaylistAnchorEl(null);
+    setAddPlaylistAnchorEl(null)
   }
 
   const handleClickOpen = () => {
-    setOpen(true);
+    setOpen(true)
   }
   const handleClose = () => {
-    setOpen(false);
+    setOpen(false)
     setForm(currentPlaylist)
   }
 
@@ -104,7 +103,7 @@ function PlaylistInfo() {
         <div className="body__info">
           <div className='errordiv' style={{ marginLeft: '10em' }}>
             {errors.map((error) => {
-              return <p key={error} className='error'>{error}</p>;
+              return <p key={error} className='error'>{error}</p>
             })}
           </div>
           <div onClick={handleClickOpen} >
@@ -204,4 +203,4 @@ function PlaylistInfo() {
   );
 };
 
-export default PlaylistInfo;
+export default PlaylistInfo

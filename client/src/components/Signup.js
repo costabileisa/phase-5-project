@@ -1,13 +1,13 @@
 import React, { useState, useContext } from "react"
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom"
 import * as moment from 'moment'
 
 import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment'
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import TextField from '@mui/material/TextField';
+import TextField from '@mui/material/TextField'
 
-import { UserContext } from "../context/UserContext";
+import { UserContext } from "../context/UserContext"
 
 function Signup() {
   const { setLocalUser, setIsAuthenticated } = useContext(UserContext);
@@ -20,7 +20,7 @@ function Signup() {
     email: "",
     birthdate: "",
   })
-  const [errors, setErrors] = useState([]);
+  const [errors, setErrors] = useState([])
   const navigate = useNavigate()
 
   function handleChange(e) {
@@ -135,7 +135,7 @@ function Signup() {
         </div>
         <div className='errordiv'>
           {errors ? errors.map((error) => {
-            return <p key={error} className='error'>{error}</p>;
+            return <p key={error} className='error'>{error}</p>
           }) : null}
         </div>
       </form>

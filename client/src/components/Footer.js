@@ -2,23 +2,23 @@ import React, { useContext, useState } from "react"
 import { UserContext } from "../context/UserContext"
 
 import { Grid } from "@mui/material";
-import PauseCircleOutlineIcon from "@mui/icons-material/PauseCircleOutline";
-import PlayCircleOutlineIcon from "@mui/icons-material/PlayCircleOutline";
-import PlaylistPlayIcon from "@mui/icons-material/PlaylistPlay";
-import RepeatIcon from "@mui/icons-material/Repeat";
-import RepeatOnIcon from '@mui/icons-material/RepeatOn';
-import ShuffleIcon from "@mui/icons-material/Shuffle";
-import ShuffleOnIcon from '@mui/icons-material/ShuffleOn';
-import SkipNextIcon from "@mui/icons-material/SkipNext";
-import SkipPreviousIcon from "@mui/icons-material/SkipPrevious";
+import PauseCircleOutlineIcon from "@mui/icons-material/PauseCircleOutline"
+import PlayCircleOutlineIcon from "@mui/icons-material/PlayCircleOutline"
+import PlaylistPlayIcon from "@mui/icons-material/PlaylistPlay"
+import RepeatIcon from "@mui/icons-material/Repeat"
+import RepeatOnIcon from '@mui/icons-material/RepeatOn'
+import ShuffleIcon from "@mui/icons-material/Shuffle"
+import ShuffleOnIcon from '@mui/icons-material/ShuffleOn'
+import SkipNextIcon from "@mui/icons-material/SkipNext"
+import SkipPreviousIcon from "@mui/icons-material/SkipPrevious"
 
 function Footer() {
-  const { currentTrack, setCurrentTrack, currentQueue } = useContext(UserContext);
-  const [shuffle, setShuffle] = useState(false);
-  const [repeat, setRepeat] = useState(false);
+  const { currentTrack, setCurrentTrack, currentQueue } = useContext(UserContext)
+  const [shuffle, setShuffle] = useState(false)
+  const [repeat, setRepeat] = useState(false)
 
   function prevSong() {
-    let currentSongIndex = currentQueue.findIndex((song) => song.id === currentTrack.id);
+    let currentSongIndex = currentQueue.findIndex((song) => song.id === currentTrack.id)
     let prev = shuffle ? currentQueue[Math.floor(Math.random() * currentQueue.length)] : currentQueue.indexOf(currentTrack) === 0 ? currentQueue[currentQueue.length - 1] : currentQueue[currentSongIndex - 1]
     setCurrentTrack(prev)
   };

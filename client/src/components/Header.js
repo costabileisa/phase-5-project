@@ -1,26 +1,26 @@
-import React, { useContext, useState } from "react";
-import { UserContext } from "../context/UserContext";
-import { useNavigate } from 'react-router-dom';
+import React, { useContext, useState } from "react"
+import { UserContext } from "../context/UserContext"
+import { useNavigate } from 'react-router-dom'
 
-import { Avatar } from "@mui/material";
-import AccountBoxIcon from '@mui/icons-material/AccountBox';
-import Button from '@mui/material/Button';
-import Divider from '@mui/material/Divider';
-import IconButton from '@mui/material/IconButton';
-import InputBase from '@mui/material/InputBase';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import Paper from '@mui/material/Paper';
-import SearchIcon from '@mui/icons-material/Search';
+import { Avatar } from "@mui/material"
+import AccountBoxIcon from '@mui/icons-material/AccountBox'
+import Button from '@mui/material/Button'
+import Divider from '@mui/material/Divider'
+import IconButton from '@mui/material/IconButton'
+import InputBase from '@mui/material/InputBase'
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
+import Menu from '@mui/material/Menu'
+import MenuItem from '@mui/material/MenuItem'
+import Paper from '@mui/material/Paper'
+import SearchIcon from '@mui/icons-material/Search'
 
 function Header() {
-  const [search, setSearch] = useState("");
-  const [errors, setErrors] = useState([]);
+  const [search, setSearch] = useState("")
+  const [errors, setErrors] = useState([])
 
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
-  const { localUser, setLocalUser, setIsAuthenticated, setMainSearch, setCurrentTrack } = useContext(UserContext);
+  const { localUser, setLocalUser, setIsAuthenticated, setMainSearch, setCurrentTrack } = useContext(UserContext)
 
   function handleChange(e) {
     setSearch(e.target.value)
@@ -47,17 +47,17 @@ function Header() {
   }
 
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const open = Boolean(anchorEl);
+  const open = Boolean(anchorEl)
   const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
+    setAnchorEl(event.currentTarget)
   };
   const handleClose = () => {
-    setAnchorEl(null);
+    setAnchorEl(null)
   };
 
   function handleMyProfile() {
     navigate('/profile')
-    setAnchorEl(null);
+    setAnchorEl(null)
   };
 
   return (
@@ -90,7 +90,7 @@ function Header() {
 
       <div className='errordiv' style={{ marginLeft: '10em' }}>
         {errors.map((error) => {
-          return <p key={error} className='error'>{error}</p>;
+          return <p key={error} className='error'>{error}</p>
         })}
       </div>
 

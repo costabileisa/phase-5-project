@@ -17,13 +17,13 @@ import Search from "./Search"
 import Home from "./Home"
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [localUser, setLocalUser] = useState({});
-  const [currentPlaylist, setCurrentPlaylist] = useState({});
-  const [currentTrack, setCurrentTrack] = useState();
-  const [currentQueue, setCurrentQueue] = useState([]);
-  const [mainSearch, setMainSearch] = useState('');
-  const [playState, setPlayState] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
+  const [localUser, setLocalUser] = useState({})
+  const [currentPlaylist, setCurrentPlaylist] = useState({})
+  const [currentTrack, setCurrentTrack] = useState()
+  const [currentQueue, setCurrentQueue] = useState([])
+  const [mainSearch, setMainSearch] = useState('')
+  const [playState, setPlayState] = useState(false)
   const [errors, setErrors] = useState([])
 
   useEffect(() => {
@@ -32,8 +32,8 @@ function App() {
         if (r.ok) {
           r.json()
             .then(data => {
-              setIsAuthenticated(true);
-              setLocalUser(data);
+              setIsAuthenticated(true)
+              setLocalUser(data)
             })
         } else {
           r.json()
@@ -95,4 +95,4 @@ function App() {
   );
 }
 
-export default App;
+export default App
