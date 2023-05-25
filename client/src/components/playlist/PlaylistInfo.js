@@ -1,38 +1,29 @@
 import React, { useState, useContext, useEffect, useRef } from "react";
-import { useParams, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { UserContext } from "../../context/UserContext";
 
 import PlaylistEdit from './PlaylistEdit';
 
 import AddBoxIcon from '@mui/icons-material/AddBox';
-import Alert from '@mui/material/Alert';
 import Grid from '@mui/material/Grid';
 import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
-import Snackbar from '@mui/material/Snackbar';
 
 function PlaylistInfo() {
   // sets state, params, navigate and context
   const { currentPlaylist, setCurrentPlaylist, localUser, setLocalUser } = useContext(UserContext);
   const navigate = useNavigate();
-  const params = useParams();
   const addPlaylistMessage = useRef('');
   const [errors, setErrors] = useState([]);
   const [form, setForm] = useState(currentPlaylist);
   const [open, setOpen] = useState(false);
-  const [snackOpen, setSnackOpen] = useState({
-    severity: null,
-    bool: false
-  });
 
-  //sets the form in state used in updating from the currentplaylist
   useEffect(() => {
     setForm(currentPlaylist)
-  }, [currentPlaylist]);
+  }, [currentPlaylist])
 
-  // deletes the current playlist and updates states by removing it
   function handleDeletePlaylist(e) {
     e.preventDefault()
     fetch(`/playlists/${currentPlaylist.id}`, {
@@ -50,13 +41,12 @@ function PlaylistInfo() {
       } else {
         res.json().then((err) => {
           setErrors(err.errors)
-        });
+        })
       }
     })
     handleCloseDeleteMenu()
-  };
+  }
 
-  // sends request to spotify to save the playlist and its contents to the logged in spotify account
   function handleAddPlaylistToSpotify() {
     let updatePackage = { ...localUser, playlists: currentPlaylist }
     fetch(`/spotify_api/save_playlist`, {
@@ -68,62 +58,48 @@ function PlaylistInfo() {
     }).then((res) => {
       if (res.ok) {
         res.json().then((message) => {
-          setSnackOpen({ severity: true, bool: true })
           addPlaylistMessage.current = message.message
         })
       } else {
         res.json().then((error) => {
-          setSnackOpen({ severity: false, bool: true })
           addPlaylistMessage.current = error.error
         })
-      };
-    });
-  };
-
-  //menu open and close handling for the delete threedot button
-  const [deleteAnchorEl, setDeleteAnchorEl] = useState(null);
-  const openDeletePlaylist = Boolean(deleteAnchorEl);
-  const handleOpenDeleteMenu = (event) => {
-    setTimeout(handleCloseDeleteMenu, 15000)
-    setDeleteAnchorEl(event.currentTarget);
-  };
-  const handleCloseDeleteMenu = () => {
-    setDeleteAnchorEl(null);
-  };
-
-  //menu open and close handling for the add to playlist plus button
-  const [addPlaylistAnchorEl, setAddPlaylistAnchorEl] = useState(null);
-  const openAddToPlaylist = Boolean(addPlaylistAnchorEl);
-  const handleOpenAddToPlaylistMenu = (event) => {
-    setTimeout(handleCloseAddToPlaylistMenu, 15000)
-    setAddPlaylistAnchorEl(event.currentTarget);
-  };
-  const handleCloseAddToPlaylistMenu = () => {
-    setAddPlaylistAnchorEl(null);
-  };
-
-  // closes the snackbar after a song has been added
-  function handleSnackClose() {
-    setSnackOpen({
-      severity: null,
-      bool: false
+      }
     })
   }
 
-  //handles opening and closing the form
+  const [deleteAnchorEl, setDeleteAnchorEl] = useState(null)
+  const openDeletePlaylist = Boolean(deleteAnchorEl)
+  const handleOpenDeleteMenu = (event) => {
+    setTimeout(handleCloseDeleteMenu, 15000)
+    setDeleteAnchorEl(event.currentTarget)
+  };
+  const handleCloseDeleteMenu = () => {
+    setDeleteAnchorEl(null)
+  };
+
+  const [addPlaylistAnchorEl, setAddPlaylistAnchorEl] = useState(null)
+  const openAddToPlaylist = Boolean(addPlaylistAnchorEl)
+  const handleOpenAddToPlaylistMenu = (event) => {
+    setTimeout(handleCloseAddToPlaylistMenu, 15000)
+    setAddPlaylistAnchorEl(event.currentTarget)
+  }
+  const handleCloseAddToPlaylistMenu = () => {
+    setAddPlaylistAnchorEl(null);
+  }
+
   const handleClickOpen = () => {
     setOpen(true);
-  };
+  }
   const handleClose = () => {
     setOpen(false);
     setForm(currentPlaylist)
-  };
+  }
 
   console.log('current playlist', currentPlaylist)
 
   return (
     <>
-      {/* Playlist information */}
       <Grid container className="body" sx={{marginLeft: '-100px'}}>
         <div className="body__info">
           <div className='errordiv' style={{ marginLeft: '10em' }}>
@@ -136,7 +112,6 @@ function PlaylistInfo() {
           </div>
           <div>
 
-            {/* delete icon and menu */}
             <div style={{ marginTop: '-10px', marginBottom: '10px' }}>
               <IconButton
                 aria-label="more"
@@ -149,7 +124,6 @@ function PlaylistInfo() {
                 <MoreHorizIcon
                   sx={{
                     marginLeft: '-10px',
-                    // height: '40px',
                     marginBottom: '-20px',
                     color: 'white',
                   }}
@@ -170,7 +144,6 @@ function PlaylistInfo() {
               </Menu>
             </div>
 
-            {/* add icon and add to spotify menu */}
             {localUser.spotify_token ?
               <div>
                 <IconButton
@@ -184,7 +157,6 @@ function PlaylistInfo() {
                   <AddBoxIcon
                     sx={{
                       marginLeft: '-10px',
-                      // height: '40px',
                       marginBottom: '-20px',
                       color: 'white',
                     }}
@@ -208,7 +180,6 @@ function PlaylistInfo() {
               <p>Login with Spotify to save this playlist to your account!</p>
             }
 
-            {/* playlist information */}
             <div className="body__infoText" onClick={handleClickOpen}>
               <h4>{currentPlaylist.name}</h4>
               <p>{currentPlaylist.description}</p>
@@ -217,7 +188,6 @@ function PlaylistInfo() {
             </div>
           </div>
 
-          {/* dialog for update menu */}
           <div>
             <PlaylistEdit 
               open={open} 
@@ -230,21 +200,6 @@ function PlaylistInfo() {
           </div>
         </div>
       </Grid >
-
-      {/* sets alert to open when playlist is added to spotify account  */}
-      <Snackbar open={snackOpen.bool} autoHideDuration={8000} onClose={handleSnackClose}>
-        <Alert
-          onClose={handleSnackClose}
-          severity={snackOpen.severity ? "success" : "error"}
-          sx={{ width: '100%' }}
-        >
-          {snackOpen.bool ?
-            `${addPlaylistMessage.current}`
-            :
-            ''
-          }
-        </Alert>
-      </Snackbar>
     </>
   );
 };
