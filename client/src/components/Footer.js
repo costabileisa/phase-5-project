@@ -1,6 +1,8 @@
 import React, { useContext, useState } from "react"
 import { UserContext } from "../context/UserContext"
 
+import "../css/footer.css"
+
 import { Grid } from "@mui/material";
 import PauseCircleOutlineIcon from "@mui/icons-material/PauseCircleOutline"
 import PlayCircleOutlineIcon from "@mui/icons-material/PlayCircleOutline"
@@ -52,6 +54,7 @@ function Footer() {
           <ShuffleIcon className='footer__green' onClick={() => setShuffle(!shuffle)} />
         }
         <SkipPreviousIcon className='footer__icon' onClick={prevSong} />
+        <PlayCircleOutlineIcon fontSize='large' className='footer__icon'/>
         <SkipNextIcon className='footer__icon' onClick={nextSong} />
         {repeat ?
           <RepeatOnIcon className='footer__green' onClick={() => setRepeat(!repeat)} />

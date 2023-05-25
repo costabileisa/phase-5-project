@@ -3904,3 +3904,67 @@ Processing by SessionsController#show as */*
 Completed 200 OK in 5ms (Views: 2.8ms | ActiveRecord: 0.9ms | Allocations: 2017)
 
 
+Started GET "/me" for 127.0.0.1 at 2023-05-25 18:59:00 -0400
+Processing by SessionsController#show as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mPlaylist Load (0.2ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists" WHERE "playlists"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."playlist_id" = $1[0m  [["playlist_id", 1]]
+[active_model_serializers]   [1m[36mSong Load (0.1ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."playlist_id" = $1[0m  [["playlist_id", 2]]
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (2.41ms)
+Completed 200 OK in 4ms (Views: 2.2ms | ActiveRecord: 0.7ms | Allocations: 2009)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-05-25 19:00:26 -0400
+Processing by SessionsController#show as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mPlaylist Load (0.5ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists" WHERE "playlists"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."playlist_id" = $1[0m  [["playlist_id", 1]]
+[active_model_serializers]   [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."playlist_id" = $1[0m  [["playlist_id", 2]]
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (25.63ms)
+Completed 200 OK in 83ms (Views: 24.9ms | ActiveRecord: 18.2ms | Allocations: 97158)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-05-25 19:00:39 -0400
+Processing by SessionsController#show as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mPlaylist Load (0.4ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists" WHERE "playlists"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."playlist_id" = $1[0m  [["playlist_id", 1]]
+[active_model_serializers]   [1m[36mSong Load (0.1ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."playlist_id" = $1[0m  [["playlist_id", 2]]
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (25.17ms)
+Completed 200 OK in 81ms (Views: 24.2ms | ActiveRecord: 17.2ms | Allocations: 97152)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-05-25 19:00:40 -0400
+Processing by SessionsController#show as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mPlaylist Load (0.3ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists" WHERE "playlists"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."playlist_id" = $1[0m  [["playlist_id", 1]]
+[active_model_serializers]   [1m[36mSong Load (0.1ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."playlist_id" = $1[0m  [["playlist_id", 2]]
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (24.75ms)
+Completed 200 OK in 79ms (Views: 23.5ms | ActiveRecord: 17.0ms | Allocations: 97156)
+
+
+Started GET "/spotify_api/browse?term=dog" for 127.0.0.1 at 2023-05-25 19:00:58 -0400
+Processing by SpotifyApiController#browse as */*
+  Parameters: {"term"=>"dog"}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (22.64ms)
+Completed 200 OK in 1367ms (Views: 23.9ms | ActiveRecord: 0.0ms | Allocations: 56068)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-05-25 19:03:28 -0400
+Processing by SessionsController#show as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mPlaylist Load (0.2ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists" WHERE "playlists"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   [1m[36mSong Load (0.1ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."playlist_id" = $1[0m  [["playlist_id", 1]]
+[active_model_serializers]   [1m[36mSong Load (0.1ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."playlist_id" = $1[0m  [["playlist_id", 2]]
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (2.34ms)
+Completed 200 OK in 4ms (Views: 2.2ms | ActiveRecord: 0.7ms | Allocations: 2019)
+
+
+Started GET "/spotify_api/browse?term=dog" for 127.0.0.1 at 2023-05-25 19:03:46 -0400
+Processing by SpotifyApiController#browse as */*
+  Parameters: {"term"=>"dog"}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (20.43ms)
+Completed 200 OK in 1945ms (Views: 20.9ms | ActiveRecord: 0.0ms | Allocations: 52578)
+
+
