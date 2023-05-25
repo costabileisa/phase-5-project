@@ -50,6 +50,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
         </Routes>
+        <Footer />
       </UserContext.Provider>
     );
 
@@ -86,7 +87,6 @@ function App() {
               <Route path="/playlists/:id" element={<Playlist />} />
               <Route path="/profile" element={<Profile />} />
             </Routes>
-
           </Grid>
         </Grid>
         <Footer />
