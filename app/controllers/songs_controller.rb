@@ -1,6 +1,4 @@
 class SongsController < ApplicationController
-  rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
-  rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
   wrap_parameters format: []
 
 def index
@@ -42,13 +40,6 @@ def destroy
 end
 
 private
-  def render_unprocessable_entity_response invalid
-    render json: { error: invalid.record.errors.full_messages }, status: :unprocessable_entity
-  end
-
-  def render_not_found_response
-    render json: { error: ["Playlist not found"] }, status: :not_found
-  end
 
   def song_params
     params.permit(:cover_art, :preview_url, :playlist_id, :name, :preview_url, :spotify_album_id, :spotify_playlist_id, :spotify_artist_id, :featured_artist, :release_date, :genre, :spotify_id)

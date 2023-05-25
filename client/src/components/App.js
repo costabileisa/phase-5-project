@@ -37,7 +37,7 @@ function App() {
             })
         } else {
           r.json()
-            .then(err => setErrors(err.errors))
+            .then(err => setErrors(() => err.errors))
         }
       })
   }, []);

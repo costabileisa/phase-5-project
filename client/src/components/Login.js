@@ -10,7 +10,7 @@ function Login() {
     username: "",
     password: ""
   })
-  const [errors, setErrors] = ([])
+  const [errors, setErrors] = useState([])
   const navigate = useNavigate()
 
   function handleChange(e) {
@@ -34,7 +34,7 @@ function Login() {
         })
       } else {
         res.json()
-        .then(err => setErrors(err.errors))
+        .then(err => console.log(err))
       }
     })
   }
@@ -70,9 +70,7 @@ function Login() {
             No Account? Sign Up!
           </button>
           <div className='errors'>
-            {errors ? errors.map(error => {
-              return <p key={error} className='error'>{error}</p>
-            }) : null}
+            {errors ? <p className='error'>{errors}</p> : null}
           </div>
         </form>
     </div>
