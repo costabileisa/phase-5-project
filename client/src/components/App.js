@@ -44,14 +44,16 @@ function App() {
 
   if (!isAuthenticated)
     return (
-      <UserContext.Provider value={{ setIsAuthenticated, setLocalUser }}>
-        <Routes>
-          <Route index element={<Login />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-        </Routes>
-        <Footer />
-      </UserContext.Provider>
+      <>
+        <UserContext.Provider value={{ setIsAuthenticated, setLocalUser }}>
+          <Routes>
+            <Route index element={<Login />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+          </Routes>
+          <Footer />
+        </UserContext.Provider>
+      </>
     );
 
   return (

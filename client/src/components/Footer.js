@@ -13,7 +13,7 @@ import SkipNextIcon from "@mui/icons-material/SkipNext";
 import SkipPreviousIcon from "@mui/icons-material/SkipPrevious";
 
 function Footer() {
-  const { currentTrack, setCurrentTrack, currentQueue, playState, setPlayState } = useContext(UserContext);
+  const { currentTrack, setCurrentTrack, currentQueue } = useContext(UserContext);
   const [shuffle, setShuffle] = useState(false);
   const [repeat, setRepeat] = useState(false);
 
