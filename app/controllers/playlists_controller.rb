@@ -19,8 +19,8 @@ class PlaylistsController < ApplicationController
       name: new_playlist_name,
       description: 'My Playlist includes ...',
       spotify_id: '',
-      type_of_playlist: 'regular ol\' playlist',
-      image: playlist_params[:params]
+      type_of_playlist: 'basic playlist',
+      image_url: "https://cdn.pixabay.com/photo/2017/09/25/13/12/puppy-2785074_1280.jpg"
     )
     render json: playlist, status: :created
   end
@@ -38,7 +38,7 @@ class PlaylistsController < ApplicationController
 
   private
     def playlist_params
-      params.permit(:cover_blob, :user_id, :id, :name, :description, :spotify_id, :type_of_playlist, :image)
+      params.permit(:user_id, :id, :name, :description, :spotify_id, :type_of_playlist, :image_url)
     end
     
 end

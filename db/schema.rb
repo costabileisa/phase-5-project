@@ -27,7 +27,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_25_182825) do
   create_table "playlists", force: :cascade do |t|
     t.string "name"
     t.integer "user_id"
-    t.string "image"
+    t.string "image_url"
     t.string "description"
     t.string "spotify_id"
     t.string "type_of_playlist"

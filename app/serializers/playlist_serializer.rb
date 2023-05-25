@@ -1,5 +1,5 @@
 class PlaylistSerializer < ActiveModel::Serializer
-  attributes :cover_blob, :id, :user_id, :name, :description, :spotify_id, :type_of_playlist, :image
+  attributes :id, :user_id, :name, :description, :spotify_id, :type_of_playlist, :image_url
   has_many :songs
   belongs_to :user
 

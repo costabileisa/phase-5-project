@@ -176,9 +176,9 @@ function Search() {
         <></>
       }
       <div className='errordiv'>
-        {errors.map((error) => {
+        {errors ? errors.map((error) => {
           return <p key={error} className='error'>{error}</p>
-        })}
+        }) : null}
       </div>
     </div>
   );
