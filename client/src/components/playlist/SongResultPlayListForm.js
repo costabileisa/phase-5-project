@@ -44,16 +44,13 @@ function SongResultPlayListForm({ track }) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        spotify_id: track.id,
-        spotify_album_id: track.album.id,
-        playlist_id: selectedPlaylist.id,
-        spotify_artist_id: track.artists[0].id,
-        featured_artist: track.artists[0].name,
         release_date: track.album.release_date,
         name: track.name,
         genre: songGenre,
+        playlist_id: selectedPlaylist.id,
+        spotify_id: track.id,
+        spotify_album_id: track.album.id,
         preview_url: track.preview_url,
-        cover_art: track.album.images[0].url,
       })
     }).then((res) => {
       if (res.ok) {
