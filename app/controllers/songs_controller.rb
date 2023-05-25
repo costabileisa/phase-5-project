@@ -14,7 +14,6 @@ def create
   playlist = Playlist.find(song_params[:playlist_id])
   album = Album.create!(
     spotify_id: song_params[:spotify_album_id],
-    artist_id: artist.id
   )
   album.update_album
   updated_song_params = song_params.clone
@@ -39,6 +38,6 @@ end
 private
 
   def song_params
-    params.permit(:cover_art, :preview_url, :playlist_id, :name, :preview_url, :spotify_album_id, :spotify_playlist_id, :spotify_artist_id, :featured_artist, :release_date, :genre, :spotify_id)
+    params.permit(:cover_art, :preview_url, :playlist_id, :name, :preview_url, :spotify_album_id, :spotify_playlist_id, :release_date, :genre, :spotify_id)
   end
 end
