@@ -1,19 +1,15 @@
 class AlbumsController < ApplicationController
   before_action :set_album, only: %i[ show update destroy ]
 
-  # GET /albums
   def index
     @albums = Album.all
-
     render json: @albums
   end
 
-  # GET /albums/1
   def show
     render json: @album
   end
 
-  # POST /albums
   def create
     @album = Album.new(album_params)
 
@@ -24,7 +20,6 @@ class AlbumsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /albums/1
   def update
     if @album.update(album_params)
       render json: @album
@@ -33,19 +28,16 @@ class AlbumsController < ApplicationController
     end
   end
 
-  # DELETE /albums/1
   def destroy
     @album.destroy
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_album
       @album = Album.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def album_params
-      params.require(:album).permit(:name, :release_date, :spotify_artist_id, :artist_name, :total_tracks, :image_url, :spotify_id)
+      params.fetch(:album, {})
     end
 end
