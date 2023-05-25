@@ -2,6 +2,8 @@ import React, { useContext, useState } from "react"
 import { UserContext } from "../context/UserContext"
 import { useNavigate } from 'react-router-dom'
 
+import "../css/header.css";
+
 import { Avatar } from "@mui/material"
 import AccountBoxIcon from '@mui/icons-material/AccountBox'
 import Button from '@mui/material/Button'

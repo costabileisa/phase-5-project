@@ -3884,3 +3884,23 @@ Processing by SessionsController#show as */*
 Completed 200 OK in 6ms (Views: 3.7ms | ActiveRecord: 1.1ms | Allocations: 2011)
 
 
+Started GET "/me" for 127.0.0.1 at 2023-05-25 18:56:05 -0400
+Processing by SessionsController#show as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mPlaylist Load (0.4ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists" WHERE "playlists"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."playlist_id" = $1[0m  [["playlist_id", 1]]
+[active_model_serializers]   [1m[36mSong Load (0.1ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."playlist_id" = $1[0m  [["playlist_id", 2]]
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (26.0ms)
+Completed 200 OK in 81ms (Views: 25.4ms | ActiveRecord: 15.2ms | Allocations: 97164)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-05-25 18:57:43 -0400
+Processing by SessionsController#show as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mPlaylist Load (0.2ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists" WHERE "playlists"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   [1m[36mSong Load (0.1ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."playlist_id" = $1[0m  [["playlist_id", 1]]
+[active_model_serializers]   [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."playlist_id" = $1[0m  [["playlist_id", 2]]
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (2.91ms)
+Completed 200 OK in 5ms (Views: 2.8ms | ActiveRecord: 0.9ms | Allocations: 2017)
+
+

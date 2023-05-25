@@ -1,0 +1,26 @@
+.NavBar{
+  border: 1px solid black;
+  min-height: 75em;
+  height: 100%;
+  flex: 20%;
+  color:white;
+  width: 230px;
+  background-color:#040404;
+  padding-left: 10px;
+  padding-right: 10px;
+  /* resize: horizontal;
+  overflow: auto; */
+}
+
+.logo{
+  margin:0;
+  margin-right:auto;
+  height:70px;
+  padding:10px;
+}
+
+.textField{
+  margin-left:auto;
+  margin-right: auto;
+  display: block;
+}

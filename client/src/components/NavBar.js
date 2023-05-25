@@ -2,7 +2,9 @@ import React, { useContext } from "react"
 import { UserContext } from "../context/UserContext"
 import { Link, useNavigate } from "react-router-dom"
 
-import PlaylistCreate from "./playlist/PlaylistCreate";
+import "../css/navbar.css"
+
+import PlaylistCreate from "./playlist/PlaylistCreate"
 
 import { Avatar } from "@mui/material";
 import { Typography } from "@mui/material"
